@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {{ theme:partial name="metadata" }}
+    <style>
+    <!--
+    	#main h2 {
+    		font-size: 8em;
+    		color: #777;
+    		margin: -0.25em 0 0.15em;
+    	}
+    -->
+    </style>
+</head>
+<body>
+
+	<nav id="nav">
+		{{ theme:partial name="navigation" }}
+	</nav>
+
+	<div class="container">
+
+		<header id="header">
+			{{ theme:partial name="header" }}
+		</header>
+
+		<section id="main">
+			{{ widgets:area slug="404" }}
+		</section>
+
+		<aside id="sidebar">
+			{{ if page:is_home }}
+				{{ theme:partial name="sidebar_home" }} 
+			{{ elseif { url:segments segment="1" } == "units" }}
+				{{ theme:partial name="sidebar_units" }} 
+			{{ elseif { url:segments segment="1" } == "training" }}
+				{{ theme:partial name="sidebar_training" }} 
+			{{ elseif { url:segments segment="1" } == "funding" }}
+				{{ theme:partial name="sidebar_funding" }} 
+			{{ elseif { url:segments segment="1" } == "media" }}
+				{{ theme:partial name="sidebar_media" }} 
+			{{ elseif { url:segments segment="1" } == "papers" }}
+				{{ theme:partial name="sidebar_papers" }} 
+			{{ else }}
+				{{ theme:partial name="sidebar_default" }} 
+			{{ endif }}
+		</aside>
+
+		<p id="update">{{ widgets:area slug="last_updated" }}</p>
+
+	</div>
+
+	<footer id="footer">
+		{{ theme:partial name="footer" }}
+	</footer>
+
+</body>
+</html>

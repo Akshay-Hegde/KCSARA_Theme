@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {{ theme:partial name="metadata" }}
+</head>
+<body>
+
+	<nav id="nav">
+		{{ theme:partial name="navigation" }}
+	</nav>
+
+	<div class="container">
+
+		<header id="header">
+			{{ theme:partial name="header" }}
+		</header>
+
+		<section id="main">
+			{{ session:messages success="alert alert-success" notice="alert alert-block" error="alert alert-error" }}    	
+			{{ template:body }}
+		</section>
+
+		<aside id="sidebar">
+			{{ if page:is_home }}
+				{{ theme:partial name="sidebar_home" }} 
+			{{ elseif { url:segments segment="1" } == "units" }}
+				{{ theme:partial name="sidebar_units" }} 
+			{{ elseif { url:segments segment="1" } == "training" }}
+				{{ theme:partial name="sidebar_training" }} 
+			{{ elseif { url:segments segment="1" } == "exams" }}
+				{{ theme:partial name="sidebar_training" }} 
+			{{ elseif { url:segments segment="1" } == "funding" }}
+				{{ theme:partial name="sidebar_funding" }} 
+			{{ elseif { url:segments segment="1" } == "media" }}
+				{{ theme:partial name="sidebar_media" }} 
+			{{ elseif { url:segments segment="1" } == "papers" }}
+				{{ theme:partial name="sidebar_papers" }} 
+			{{ elseif { url:segments segment="1" } == "policies" }}
+				{{ theme:partial name="sidebar_policies" }} 
+			{{ else }}
+				{{ theme:partial name="sidebar_default" }} 
+			{{ endif }}
+		</aside>
+
+		<p id="update">{{ widgets:area slug="last_updated" }}</p>
+
+	</div>
+
+	<footer id="footer">
+		{{ theme:partial name="footer" }}
+	</footer>
+
+</body>
+</html>

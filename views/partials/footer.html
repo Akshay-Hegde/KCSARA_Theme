@@ -1,0 +1,20 @@
+		<nav>
+			<ul>
+				{{ navigation:links group="footer" }}
+			</ul>
+		</nav>
+		<div class="container">
+			<div class="about-us">
+				{{ widgets:area slug="footer_about_us" }}
+			</div>
+			<div class="events-and-downloads">
+				{{ widgets:area slug="footer_upcoming_events" }}
+				{{# widgets:area slug="footer_downloads" #}}
+			</div>
+			<div class="contacts">
+				{{ widgets:area slug="footer_contacts" }}
+			</div>
+		</div>
+		<div class="copyright">
+				{{ widgets:area slug="footer_copyright" }}
+		</div>
