@@ -1,0 +1,387 @@
+////////////
+// COLORS //
+////////////
+/* Here is a minor change */
+@color-white: #fff;
+@color-black: #222;
+@color-grey: #ccc;
+@color-ltgrey: #dfdfdf;
+@color-dkgreen: #4b610b;
+@color-ltyellow: #fff7d7;
+@color-mdyellow: #fde49d;
+@color-dkyellow: #fad163;
+@color-bkyellow: #d0ae52;
+
+
+@import 'normalize.less';
+@import 'grid.less';
+
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+@footer-height: 50em;
+
+// Remove the definition below for a pixel-based layout
+@total-width: 100%;
+
+
+////////////////
+// TYPOGRAPHY //
+////////////////
+
+#sidebar h2 {
+	color: @color-dkgreen;
+}
+
+li {
+	list-style-position: outside;
+	margin-left: 1em;
+}
+
+////////////
+// LAYOUT //
+////////////
+
+.rounded_corners {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 0.25em 0.75em;
+}
+
+.alert {
+	background: @color-dkyellow; // fad163 fff7d7
+
+	background: -webkit-linear-gradient(@color-ltyellow, @color-dkyellow); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(@color-ltyellow, @color-dkyellow); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(@color-ltyellow, @color-dkyellow); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(@color-ltyellow, @color-dkyellow); /* Standard syntax */
+
+	background-repeat: repeat-x;
+	border: thin @color-mdyellow solid;
+	border-bottom: thin @color-bkyellow solid;
+
+	-webkit-animation-duration: 1s;
+	-moz-animation-duration: 1s;
+	-ms-animation-duration: 1s;
+	-o-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-ms-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
+	-ms-animation-name: fadeIn;
+	-o-animation-name: fadeIn;
+	animation-name: fadeIn;
+
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
+	-ms-animation-name: fadeIn;
+	-o-animation-name: fadeIn;
+	animation-name: fadeIn;
+
+	.rounded_corners;
+}
+
+#help {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.4);
+	z-index:9999;
+}
+
+#help div {
+	position: relative;
+	width: 40%;
+	margin: 10% auto;
+	background: @color-dkyellow;
+	.alert;
+}
+
+#help a {
+	position: relative;
+	float: right;
+}
+
+///////////////////////////////////////////////////
+// Extra small devices (phones, less than 768px) //
+// No media query since this is the default      //
+///////////////////////////////////////////////////
+
+#header,
+#main,
+#sidebar,
+#footer {
+	.column(12);
+}
+
+#nav {
+	width: 100%;
+	height: 3em;
+	background-color: @color-black;
+	color: @color-white;
+	a,
+	a:visited {
+		color: @color-white;
+		border: none;
+	}
+	a:hover {
+		border-bottom: 1px solid;
+	}
+}
+
+#header {
+}
+
+#main {
+}
+
+#sidebar article {
+	margin: 1em 0;
+	background-color: @color-grey;
+}
+
+#update {
+	clear: both;
+	text-align: center;
+	font-size: small;
+	color: @color-grey;
+	padding: 0.75em 0 1.5em;
+}
+
+#footer {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 10em;
+	background-color: @color-ltgrey;
+	font-size: 85%;
+}
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/////////////////////////////////////////////////
+// Move to Medium and Large devices in phase 2 //
+/////////////////////////////////////////////////
+
+	html, body, .container { height: 100%; }
+	body > .container { height: auto; min-height: 100%; }
+
+	.container {
+		padding-bottom: 3em;
+		width: 960px; /* Change to max-width when moved to Medium and Large devices in phase 2. */
+		margin: 0 auto;
+	}
+
+	#nav {
+		min-width: 960px; /* Remove when moved to Medium and Large devices in phase 2. */
+		background: @color-black;
+		ul {
+			display: block;
+			margin: 0 auto;
+			padding: 0.5em;
+			width: 960px; /* Change to max-width when moved to Medium and Large devices in phase 2. */
+		}
+		ul li {
+			display: inline-block;
+			margin: 0 2em 0 0;
+		}
+	}
+
+	#header {
+		margin: 1em 0 1em;
+		height: 4em;
+		line-height: 4em;
+		img {
+			display: inline;
+			float: left;
+		}
+		h1 {
+			display: inline;
+			color: @color-dkgreen;
+			font-size: 2em;
+			line-height: 1.5em;
+			margin: 0 0 .3824em;
+		}
+	}
+
+	#main {
+		.column(8);
+		float: right;
+	}
+
+	.back_to_top {
+		font-style:normal;
+		font-weight:normal;
+		font-size:12pt;
+	}
+
+	#sidebar {
+		.column(4);
+		article {
+			margin-top: 1em;
+			margin-bottom: 2em;
+			h2 {
+				position: relative;
+				top: -1em;
+		
+				text-transform:uppercase;
+				background: @color-dkgreen;
+				color: @color-white;
+				padding: 0.3em 1.5em;
+				font-size: 85%;
+		
+				-moz-border-radius-topleft: 8px;
+				-moz-border-radius-topright: 8px;
+		
+				-webkit-border-top-left-radius: 8px;
+				-webkit-border-top-right-radius: 8px;
+				a {
+					color: @color-white;
+				}
+			}
+			h3 {
+				position: relative;
+				top: -0.8em;
+				margin: 0;
+				padding: 0 1.5em 1em;
+				font-size: 85%;
+				color: @color-dkgreen;
+			}
+			p,
+			ul {
+				position: relative;
+				top: -0.8em;
+				margin: 0;
+				padding: 0 1.5em 1em;
+				font-size: 85%;
+			}
+		}
+	}
+
+	#update {
+		padding: 1em 0 @footer-height;
+	}
+
+	#footer {
+		clear: both;
+		position: relative;
+		z-index: 10;
+		min-width: 960px; /* Remove when moved to Medium and Large devices in phase 2. */
+		height: @footer-height;
+		margin-top: -@footer-height;
+		.container {
+			height: auto;
+			min-height: auto;
+		}
+		h2 {
+			margin: 0 0 0.3em;
+			font-size: 1em;
+		}
+		h3 {
+			margin: 1em 0 0.3em;
+			font-size: 90%;
+			a,
+			a:visited {
+				border-bottom: 1px solid;
+			}
+		}
+		nav {
+			ul {
+				display: block;
+				margin: 1em auto 2em;
+				padding: 0.5em;
+				max-width: 480px;
+				text-align: center;
+			}
+			ul li {
+				display: inline-block;
+				margin: 0 2em 0 0;
+			}
+		}
+		.copyright {
+			.column(12);
+			padding-bottom: 3em;
+			p {
+				margin: 0 auto;
+				text-align: center;
+			}
+		}
+		.about-us {
+			.column(4);
+			* {
+				max-width: 300px;
+			}
+		}
+		.events-and-downloads {
+			.column(4);
+		}
+		.contacts {
+			.column(4);
+		}
+	}
+
+///////////////////////////////////////////
+// Small devices (tablets, 768px and up) //
+///////////////////////////////////////////
+@media screen and (min-width: 768px) {
+}
+
+/////////////////////////////////////////////
+// Medium devices (desktops, 992px and up) //
+/////////////////////////////////////////////
+@media screen and (min-width: 992px) {
+	#nav {
+		position: fixed;
+		left: 0;
+		
+		background: rgba(0, 0, 0, 0.6);
+		filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+		-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+		z-index: 999;
+	}
+	#header {
+		margin: 4em 0 1em;
+		height: 4em;
+		line-height: 4em;
+		img {
+			display: inline;
+			float: left;
+		}
+		h1 {
+			display: inline;
+			color: @color-dkgreen;
+		}
+	}
+}
+
+///////////////////////////////////////////////////
+// Large devices (large desktops, 1200px and up) //
+///////////////////////////////////////////////////
+@media screen and (min-width: 1200px) {
+}
+
+
+
+
+
+
