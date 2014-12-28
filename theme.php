@@ -13,5 +13,5 @@ class Theme_Kcsara extends Theme
   public $website		= 'http://www.kcsara.org/';
 
 }
-/* End of file theme.php z */
+/* End of file theme.php */
 
